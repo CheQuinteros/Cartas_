@@ -6,6 +6,7 @@ var Pcarga = document.querySelector(".carga");
 let opacidad = 1
 var nombre, Ncartas;
 var altoTablero = 200;
+var arrayN;
 
 window.addEventListener("load", function(){
 
@@ -63,6 +64,8 @@ function iniciarjuego (ncard, name){
     var content = document.querySelector(".contenedor");
     content.style.display = "none";
 
+    generarNumeros(ncard);
+
     var tablero = document.createElement("div");
     tablero.style.width = screen.width - 120 + "px";
     tablero.style.height = "auto";
@@ -75,14 +78,31 @@ function iniciarjuego (ncard, name){
     for (let i = 0; i < ncard; i++) {
 
         var carta = document.createElement("div");
-        carta.style.width = 100 + "px";
-        carta.style.height = altoTablero - 50 + "px";
-        carta.style.background = "#116906";
-        carta.style.float = "right"
-        carta.style.margin = "10px";
+        // carta.style.width = 100 + "px";
+        // carta.style.height = altoTablero - 50 + "px";
+        // carta.style.background = "#116906";
+        // carta.style.float = "right"
+        // carta.style.margin = "10px";
+        carta.innerHTML = arrayN[i];
+        // carta.style.fontSize = "50px"
+        carta.setAttribute("class", "carta")
 
         tablero.appendChild(carta);
     }
+}
+
+function generarNumeros(totalCartas){
+    var conta = 1;
+    arrayN = new Array();
+    for (let i = 0; i < totalCartas; i++) {
+        arrayN.push(conta);
+        if (i % 2 == 0) {
+            conta++;
+        }
+    }
+    arrayN[totalCartas-1] = 1;
+    arrayN = arrayN.sort( function (){ return Math.random() - 0.5});
+    //console.log(arrayN);
 }
 
 

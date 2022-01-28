@@ -67,3 +67,18 @@ button{
     align-items: center;
     /* display: none; */
 }
+
+
+
+.carta{
+    width: 100px;
+    height: 150px;
+    background: rgb(17, 105, 6);
+    float: right;
+    margin: 10px;
+    font-size: 100px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
