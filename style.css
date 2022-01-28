@@ -1,0 +1,69 @@
+.carga {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: url('loader.gif') 50% 50% no-repeat rgb(249,249,249);
+    /* opacity: 0.93; */
+}
+
+body{
+    background: #b9e984;
+}
+.contenedor{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor .hijo{
+    background: rgb(0 0 0 / 30%);
+    padding: 15px;
+    border-radius: 10px;
+
+}
+
+.contenedor .titutlo h2{
+    float: left;
+}
+
+.contenedor #logotipo{
+    width: 75px;
+    height: 75px;
+}
+
+.datos #usuario{
+    width: 75%;
+    height: 30px;
+    font-size: 18px;
+}
+
+
+.datos #pares{
+    margin-top: 15px;
+    width: 75%;
+    height: 30px;
+    font-size: 18px;
+}
+
+button{
+    float: right;
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: #b9e984;
+    color: white;
+    font-size: 20px;
+}
+
+
+
+.Tablero{
+    /* width: 100%;
+    height: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* display: none; */
+}
