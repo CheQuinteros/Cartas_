@@ -7,7 +7,8 @@ let opacidad = 1
 var nombre, Ncartas;
 var altoTablero = 200;
 var arrayN;
-
+var dato1, dato2;
+var elemento1, elemento2;
 window.addEventListener("load", function(){
 
  //myTimeout = setTimeout(pantallaCarga, 20);
@@ -86,9 +87,40 @@ function iniciarjuego (ncard, name){
         carta.innerHTML = arrayN[i];
         // carta.style.fontSize = "50px"
         carta.setAttribute("class", "carta")
+        carta.setAttribute("id", i)
 
         tablero.appendChild(carta);
+
+        carta.addEventListener("click", function(evet){
+            //console.log(this.innerHTML);
+            if (this.style.color == "red") {
+                
+            }else{
+                this.style.color = "red";
+            
+                if (dato1 == null) {
+                    dato1 = parseInt(this.innerHTML);   
+                    console.log("dato1 lleno");
+
+                    if(elemento1 != null && elemento2 != null){
+                        elemento1.style.color = "rgb(17, 105, 6)";
+                        elemento2.style.color = "rgb(17, 105, 6)";
+                    }
+
+                    elemento1 = this;
+
+                }else{
+                
+                    dato2 = parseInt(this.innerHTML);
+                    console.log("dato2 lleno");
+                    elemento2 = this;
+                    comprobarNumeros(dato1, dato2);
+                }
+            }
+
+        })
     }
+
 }
 
 function generarNumeros(totalCartas){
@@ -104,6 +136,29 @@ function generarNumeros(totalCartas){
     arrayN = arrayN.sort( function (){ return Math.random() - 0.5});
     //console.log(arrayN);
 }
+
+function comprobarNumeros(dat1, dat2){
+    if (dat1 == dat2) {
+        console.log("felicidades")
+        elemento1.classList.remove("carta");
+        elemento2.classList.remove("carta");
+        elemento1.setAttribute("class", "carta2");
+        elemento2.setAttribute("class", "carta2");
+        dato1 = null;
+        dato2 = null;
+        elemento1 = null;
+        elemento2 = null;
+    }else{
+        dato1 = null;
+        dato2 = null;
+        console.log("no son iguales");
+        // elemento1.style.color = "blue";
+        // elemento2.style.color = "blue";
+    }
+    
+}
+
+
 
 
 
